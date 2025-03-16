@@ -38,3 +38,12 @@ filter(flights, month %in% c(11, 12))
 filter(flights, !(arr_delay > 120 | dep_delay > 120))  # or
 filter(flights, arr_delay <= 120, dep_delay <= 120)
 
+## range()
+arrange(flights, year, month, day)  # ascending order
+arrange(flights, desc(arr_delay))  # descending order
+df <- tibble(x = c(5, 2, NA))
+
+arrange(df, x)  # NA is sorted at the end
+arrange(df, desc(x))  # NA is sorted at the end
+
+

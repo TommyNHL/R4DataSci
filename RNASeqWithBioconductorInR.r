@@ -21,3 +21,20 @@ ggplot(df_rawCountMatrix) +
     xlab("Raw Expression Counts") + 
     ylab("Number of Genes")
 
+genotype <- c("wt", "wt", "wt", "wt", "wt", "wt", "wt")
+
+condition <- c("normal", "fibrosis", "normal", 
+    "fibrosis", "normal", "fibrosis", "fibrosis")
+
+metadata <- data.frame(genotype, condition)
+
+rownames(metadata) <- c("wt_normal3", "wt_fibrosis3", "wt_normal1", 
+    "wt_fibrosis2", "wt_normal2", "wt_fibrosis4", "wt_fibrosis1")
+
+object_DESeq2 <- DESeqDataSetFromMatrix(
+    countData = df_rawCountMatrix, 
+    colData = metadata, 
+    design = ~ condition
+    )
+
+

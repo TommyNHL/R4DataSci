@@ -11,4 +11,13 @@ library(RColorBrewer)
 library(pheatmap)
 library(tidyverse)
 
+head(df_rawCountMatrix, 6)
+str(df_rawCountMatrix)
+
+ggplot(df_rawCountMatrix) + 
+    geom_histogram(aes(x = wt_normal1), 
+        stat = "bin", 
+        bins = 200) + 
+    xlab("Raw Expression Counts") + 
+    ylab("Number of Genes")
 

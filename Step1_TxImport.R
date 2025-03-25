@@ -1,9 +1,5 @@
 # the R script below is adapted from Daniel Beiting and modified by me
 
-# Notes:
-# This script is organized into 'chunks' of code, and 
-# the final chunk (called 'the essentials') is a minimal representation of this script.
-
 # load packages----
 library(rhdf5) #provides functions for handling hdf5 file formats (kallisto outputs bootstraps in this format)
 library(tidyverse) # provides access to Hadley Wickham's collection of R packages for data science, which we will use throughout the course
@@ -36,6 +32,8 @@ Tx <- dplyr::rename(Tx, target_id = tx_id)
 
 #transcrip ID needs to be the first column in the dataframe
 Tx <- dplyr::select(Tx, "target_id", "gene_name")
+
+write.csv(Tx, "../tx.csv")
 
 # ==============================================================================
 # OPTIONAL: get annotations using BiomaRt----

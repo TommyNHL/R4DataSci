@@ -33,7 +33,7 @@ Tx <- dplyr::rename(Tx, target_id = tx_id)
 #transcrip ID needs to be the first column in the dataframe
 Tx <- dplyr::select(Tx, "target_id", "gene_name")
 
-write.csv(Tx, "../tx.csv")
+write.csv(Tx, "../../tx.csv")
 
 # ==============================================================================
 # OPTIONAL: get annotations using BiomaRt----

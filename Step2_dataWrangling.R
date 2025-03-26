@@ -1,8 +1,5 @@
 # the R script below is adapted from Daniel Beiting and modified by me
 
-# Notes:
-# recall that your abundance data are TPM, while the counts are read counts mapping to each gene or transcript
-
 # Load packages -----
 library(tidyverse) # already know about this from Step 1 script
 library(edgeR) # well known package for differential expression analysis, but we only use for the DGEList object and for normalization methods
@@ -44,15 +41,15 @@ ggplot(myTPM.stats) +
 
 # Let's expand on the plot above a bit more and take a look at each 'layer' of the ggplot code
 p1 <- ggplot(myTPM.stats) + 
-          aes(x = SD, y = MED) +
-          geom_point(shape=16, size=2) +
-          geom_smooth(method=lm) +
-          geom_hex(show.legend = FALSE) +
+          aes(x = SD, y = MED) + 
+          geom_point(shape=16, size=2) + 
+          geom_smooth(method=lm) + 
+          geom_hex(show.legend = FALSE) + 
           labs(y="Median", x = "Standard deviation", 
                title="Transcripts per million (TPM)", 
                subtitle="unfiltered, non-normalized data", 
-               caption="RNA-Seq: Liver Fibrosis & Healthy Groups") +
-          theme_classic() +
+               caption="RNA-Seq: Liver Fibrosis & Healthy Groups") + 
+          theme_classic() + 
           theme_dark() + 
           theme_bw()
 p1
